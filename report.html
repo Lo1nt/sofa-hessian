@@ -1,0 +1,554 @@
+<html>
+<head>
+<title>Migration Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text fill='red' x='50%' y='50%' font-size='22px' text-anchor='middle' dominant-baseline='central'>🗒️</text></svg>" type="image/svg+xml" />
+<style>
+  body { margin: 0; color: #262626; font-family: Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji }
+  .container { width: 100%; height: 100vh; display: flex; overflow: hidden }
+  #content { flex-shrink: 0; width: 320px; display: flex; flex-direction: column; overflow: hidden;}
+  #resizer { flex-shrink: 0; width: 1px; cursor: ew-resize; background: rgb(240, 241, 244); }
+  #resizer:hover { background: grey }
+  #main { flex-grow: 1; display: flex; flex-direction: column-reverse; overflow: hidden; position: relative }
+  .ce { border-radius: 6px; margin-bottom: 3px; cursor: pointer; padding: 7px 12px;}
+  .ce:hover, .ce.active { background: rgb(229, 230, 230); }
+  .ce.active { font-weight: 700; }
+  .ceh { font-size: 16px; word-break: break-all }
+  .ced { font-size: 14px; color: rgba(0,0,0,.45); }
+  .ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tag { display: inline-block; background-color: #fef0f0; border: 1px solid #fde2e2; border-radius: 4px; color: #f56c6c; padding: 0 10px; font-size: 12px; line-height: 26px; height: 28px; box-sizing: border-box }
+  ul { padding-left: 2em; margin-top: 0; margin-bottom: 16px }
+  h1, h2, h3, li { word-break: break-all }
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="content">
+    <div style="flex-grow: 1; overflow-y: auto; direction: rtl">
+      <div style="padding: 5px; direction: ltr">
+        <div class="ce  active " id="ce0" onclick="clickCE('0')">
+          <div class="ceh">hessian</div>
+          <div class="ced ellipsis">com.alipay.sofa:hessian:3.5.0-jdk17-SNAPSHOT</div>
+          <div class="ced ellipsis">83 incompatible issues found</div>
+        </div>
+        <div class="ce " id="ce1" onclick="clickCE('1')">
+          <div class="ceh">Project Dependencies</div>
+          <div class="ced ellipsis">Dependency Count: 4</div>
+          <div class="ced ellipsis">25 incompatible issues found</div>
+        </div>
+      </div>
+    </div>
+    <div style="flex-shrink: 0; margin: 5px; padding: 7px 12px; border-top: 1px solid hsla(210, 18%, 87%, 1);
+                font-size: 14px">
+      108 incompatible issues found
+    </div>
+  </div>
+  <div id="resizer"></div>
+  <div id="main">
+    <div class="ellipsis"
+         style="flex-shrink: 0; margin: 5px; padding: 7px 12px; border-top: 1px solid hsla(210, 18%, 87%, 1);
+                font-size: 14px; font-weight: 500; text-align: center">
+      <a href="https://github.com/adoptium/emt4j" target="_blank" style="text-decoration: none; color: #262626">
+        Eclipse Migration Toolkit for Java
+      </a>
+    </div>
+    <div style="position: absolute; top:0; bottom: 45px; left: 0; width: 25px;; display: flex; justify-content: center; align-items: center;">
+      <span style="font-size: 14px; cursor: pointer; user-select: none" onclick="toggleSubContent()">📎</span>
+    </div>
+    <div id="sc0"
+           style="position: absolute; top: 0; bottom: 45px; left: 41px; display: none;
+                  justify-content: center; align-items: center;">
+      <div style="position: relative; padding: 0 15px; background: rgb(229, 230, 230); border-radius: 6px; z-index: 1024"
+           onmouseleave="hiddenSubContent()">
+        <span style="position: absolute; right: 7px; font-size: 14px; user-select: none; cursor: pointer"
+              onclick="hiddenSubContent()">x</span>
+          <p><a href="#rd-anchorcr-anchor812381465-1">1. The schema of java version changed in JDK 9</a> (p1) (6)</p>
+          <p><a href="#rd-anchorcr-anchor812381465-2">2. Use deprecated Java API</a> (p4) (74)</p>
+          <p><a href="#rd-anchorcr-anchor812381465-3">3. JDK internal APIs</a> (p4) (3)</p>
+      </div>
+    </div>
+    <div id="sc1"
+           style="position: absolute; top: 0; bottom: 45px; left: 41px; display: none;
+                  justify-content: center; align-items: center;">
+      <div style="position: relative; padding: 0 15px; background: rgb(229, 230, 230); border-radius: 6px; z-index: 1024"
+           onmouseleave="hiddenSubContent()">
+        <span style="position: absolute; right: 7px; font-size: 14px; user-select: none; cursor: pointer"
+              onclick="hiddenSubContent()">x</span>
+          <p><a href="#rd-anchorcr-anchor-1457349872-1">1. The schema of java version changed in JDK 9</a> (p1) (1)</p>
+          <p><a href="#rd-anchorcr-anchor-1457349872-2">2. Use deprecated Java API</a> (p4) (23)</p>
+          <p><a href="#rd-anchorcr-anchor-1457349872-3">3. JDK internal APIs</a> (p4) (1)</p>
+      </div>
+    </div>
+    <div id="me0" style="padding: 5px 25px; flex-grow: 1; overflow-y: auto; display:  block ">
+      <h1 style="margin-top: 0; padding-bottom: 7px; border-bottom: 1px solid hsla(210, 18%, 87%, 1);">hessian</h1>
+        <h2><a name="rd-anchorcr-anchor812381465-1">1. The schema of java version changed in JDK 9</a></h2>
+      <div style="padding: 0 16px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px; background: #cfd1d0"></div>
+        <h3>Description</h3>
+        <span class="tag">Priority: p1</span>
+        <span class="tag" style="margin-left: 10px">Issue Count: 6</span>
+        <p>Start from JDK 9,java.version property is not start with 1.x,but like : "9.0.1, 11.0.4, 12, 12.0.1".</p>
+        <h3>How to fix</h3>
+        <p>See the section "New Version-String Scheme" in https://docs.oracle.com/javase/9/migrate/toc.htm</p>
+        <h3>Issues Context</h3>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/throwable/ThrowableHelper.class, Target: com.caucho.hessian.io.throwable.ThrowableHelper</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/caucho/hessian/io/throwable/ThrowableJdk17SerializeTest.class, Target: com.caucho.hessian.io.throwable.ThrowableJdk17SerializeTest</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/caucho/hessian/io/throwable/SerializeCompatibleSelfTest.class, Target: com.caucho.hessian.io.throwable.SerializeCompatibleSelfTest</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/SerializerFactory.class, Target: com.caucho.hessian.io.SerializerFactory</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/caucho/hessian/io/throwable/SerializeCompatibleTest.class, Target: com.caucho.hessian.io.throwable.SerializeCompatibleTest</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/caucho/hessian/test/java8/Java8TimeSerializerTest.class, Target: com.caucho.hessian.test.java8.Java8TimeSerializerTest</li>
+        </ul>
+      </div>
+        <h2><a name="rd-anchorcr-anchor812381465-2">2. Use deprecated Java API</a></h2>
+      <div style="padding: 0 16px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px; background: #cfd1d0"></div>
+        <h3>Description</h3>
+        <span class="tag">Priority: p4</span>
+        <span class="tag" style="margin-left: 10px">Issue Count: 74</span>
+        <p>The deprecated API may be removed in a later JDK release.</p>
+        <h3>How to fix</h3>
+        <p>Replace with deprecated API by reference to JavaDoc.</p>
+        <h3>Issues Context</h3>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianOutput.class!/com.caucho.hessian.io.HessianOutput!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/alipay/hessian/generic/special/BasicBeanTest.class!/com.alipay.hessian.generic.special.BasicBeanTest!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/alipay/hessian/generic/util/GenericUtils.class!/com.alipay.hessian.generic.util.GenericUtils!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/JavaDeserializer.class!/com.caucho.hessian.io.JavaDeserializer!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BeanDeserializer.class!/com.caucho.hessian.io.BeanDeserializer!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/client/HessianProxy.class!/com.caucho.hessian.client.HessianProxy!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/Hessian2Output.class!/com.caucho.hessian.io.Hessian2Output!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianInput.class!/com.caucho.hessian.io.HessianInput!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/client/HessianJMSProxy.class!/com.caucho.hessian.client.HessianJMSProxy!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/io/BurlapOutput.class!/com.caucho.burlap.io.BurlapOutput!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/micro/MicroHessianInput.class!/com.caucho.hessian.micro.MicroHessianInput!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BeanDeserializer.class!/com.caucho.hessian.io.BeanDeserializer!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BeanDeserializer.class!/com.caucho.hessian.io.BeanDeserializer!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/CollectionDeserializer.class!/com.caucho.hessian.io.CollectionDeserializer!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/io/BurlapInput.class!/com.caucho.burlap.io.BurlapInput!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/caucho/hessian/test/atomic/AtomicDeserializeTest.class!/com.caucho.hessian.test.atomic.AtomicDeserializeTest!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/micro/MicroHessianInput.class!/com.caucho.hessian.micro.MicroHessianInput!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/io/BurlapInput.class!/com.caucho.burlap.io.BurlapInput!/, Target: java.lang.Double.<init>(Ljava/lang/String;)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/alipay/hessian/generic/special/BasicBeanTest.class!/com.alipay.hessian.generic.special.BasicBeanTest!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/alipay/hessian/generic/io/GenericObjectSerializer.class!/com.alipay.hessian.generic.io.GenericObjectSerializer!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/SqlDateDeserializer.class!/com.caucho.hessian.io.SqlDateDeserializer!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$LongState.class!/com.caucho.hessian.io.HessianDebugState$LongState!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/alipay/hessian/generic/util/GenericUtils.class!/com.alipay.hessian.generic.util.GenericUtils!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/alipay/hessian/generic/util/GenericUtils.class!/com.alipay.hessian.generic.util.GenericUtils!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/client/MicroBurlapInput.class!/com.caucho.burlap.client.MicroBurlapInput!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Float.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/CalendarHandle.class!/com.caucho.hessian.io.CalendarHandle!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/JavaDeserializer.class!/com.caucho.hessian.io.JavaDeserializer!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/Hessian2Input.class!/com.caucho.hessian.io.Hessian2Input!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/alipay/hessian/generic/util/GenericUtils.class!/com.alipay.hessian.generic.util.GenericUtils!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianInput.class!/com.caucho.hessian.io.HessianInput!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianSerializerInput.class!/com.caucho.hessian.io.HessianSerializerInput!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/throwable/ThrowableDeserializer.class!/com.caucho.hessian.io.throwable.ThrowableDeserializer!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$DoubleIntegerState.class!/com.caucho.hessian.io.HessianDebugState$DoubleIntegerState!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/io/BurlapInput.class!/com.caucho.burlap.io.BurlapInput!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BeanDeserializer.class!/com.caucho.hessian.io.BeanDeserializer!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/throwable/ThrowableDeserializer.class!/com.caucho.hessian.io.throwable.ThrowableDeserializer!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/Hessian2Input.class!/com.caucho.hessian.io.Hessian2Input!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/client/BurlapProxy.class!/com.caucho.burlap.client.BurlapProxy!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$IntegerState.class!/com.caucho.hessian.io.HessianDebugState$IntegerState!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/io/BurlapInput.class!/com.caucho.burlap.io.BurlapInput!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/JavaDeserializer.class!/com.caucho.hessian.io.JavaDeserializer!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/client/MicroBurlapInput.class!/com.caucho.burlap.client.MicroBurlapInput!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/client/MicroBurlapInput.class!/com.caucho.burlap.client.MicroBurlapInput!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/Hessian2Input.class!/com.caucho.hessian.io.Hessian2Input!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$State.class!/com.caucho.hessian.io.HessianDebugState$State!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$State.class!/com.caucho.hessian.io.HessianDebugState$State!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/Hessian2Input.class!/com.caucho.hessian.io.Hessian2Input!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/server/HessianServlet.class!/com.caucho.hessian.server.HessianServlet!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$State.class!/com.caucho.hessian.io.HessianDebugState$State!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/micro/MicroHessianInput.class!/com.caucho.hessian.micro.MicroHessianInput!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/server/BurlapServlet.class!/com.caucho.burlap.server.BurlapServlet!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/JavaDeserializer.class!/com.caucho.hessian.io.JavaDeserializer!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/client/HessianJMSProxy.class!/com.caucho.hessian.client.HessianJMSProxy!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianInput.class!/com.caucho.hessian.io.HessianInput!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/throwable/ThrowableDeserializer.class!/com.caucho.hessian.io.throwable.ThrowableDeserializer!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/alipay/hessian/generic/list/MyListDeserializer.class!/com.alipay.hessian.generic.list.MyListDeserializer!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianInput.class!/com.caucho.hessian.io.HessianInput!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/caucho/hessian/test/atomic/SerializeCompatibleTest.class!/com.caucho.hessian.test.atomic.SerializeCompatibleTest!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/HessianDebugState$RefState.class!/com.caucho.hessian.io.HessianDebugState$RefState!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BeanDeserializer.class!/com.caucho.hessian.io.BeanDeserializer!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/io/BurlapInput.class!/com.caucho.burlap.io.BurlapInput!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/alipay/hessian/generic/special/BasicBeanTest.class!/com.alipay.hessian.generic.special.BasicBeanTest!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BeanDeserializer.class!/com.caucho.hessian.io.BeanDeserializer!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/client/HessianProxy.class!/com.caucho.hessian.client.HessianProxy!/, Target: java.lang.Boolean.<init>(Z)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/burlap/client/BurlapProxy.class!/com.caucho.burlap.client.BurlapProxy!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/BasicDeserializer.class!/com.caucho.hessian.io.BasicDeserializer!/, Target: java.lang.Float.<init>(F)V</li>
+        </ul>
+      </div>
+        <h2><a name="rd-anchorcr-anchor812381465-3">3. JDK internal APIs</a></h2>
+      <div style="padding: 0 16px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px; background: #cfd1d0"></div>
+        <h3>Description</h3>
+        <span class="tag">Priority: p4</span>
+        <span class="tag" style="margin-left: 10px">Issue Count: 3</span>
+        <p>JDK internal API should only be called by JDK. It means these APIs is unstable, they may be changed or removed in a future release.</p>
+        <h3>How to fix</h3>
+        <p>Use public Java API.</p>
+        <h3>Issues Context</h3>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/alipay/hessian/generic/util/GenericUtils.class, Target: sun.misc.Unsafe</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/test-classes/com/alipay/hessian/UnsafeMain.class, Target: sun.misc.Unsafe</li>
+        </ul>
+        <ul>
+          <li>Location: file:/Users/lo1nt/javaworkspace/opensource/lo1nt/jdk17-sofa-hessian/target/classes/com/caucho/hessian/io/JavaDeserializer.class, Target: sun.misc.Unsafe</li>
+        </ul>
+      </div>
+    </div>
+    <div id="me1" style="padding: 5px 25px; flex-grow: 1; overflow-y: auto; display:  none ">
+      <h1 style="margin-top: 0; padding-bottom: 7px; border-bottom: 1px solid hsla(210, 18%, 87%, 1);">Project Dependencies</h1>
+        <h2><a name="rd-anchorcr-anchor-1457349872-1">1. The schema of java version changed in JDK 9</a></h2>
+      <div style="padding: 0 16px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px; background: #cfd1d0"></div>
+        <h3>Description</h3>
+        <span class="tag">Priority: p1</span>
+        <span class="tag" style="margin-left: 10px">Issue Count: 1</span>
+        <p>Start from JDK 9,java.version property is not start with 1.x,but like : "9.0.1, 11.0.4, 12, 12.0.1".</p>
+        <h3>How to fix</h3>
+        <p>See the section "New Version-String Scheme" in https://docs.oracle.com/javase/9/migrate/toc.htm</p>
+        <h3>Issues Context</h3>
+        <ul>
+          <li>Location: file:/Users/lo1nt/.m2/repository/org/slf4j/slf4j-api/1.7.9/slf4j-api-1.7.9.jar!/org/slf4j/helpers/BasicMDCAdapter.class, Target: org.slf4j.helpers.BasicMDCAdapter</li>
+        </ul>
+      </div>
+        <h2><a name="rd-anchorcr-anchor-1457349872-2">2. Use deprecated Java API</a></h2>
+      <div style="padding: 0 16px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px; background: #cfd1d0"></div>
+        <h3>Description</h3>
+        <span class="tag">Priority: p4</span>
+        <span class="tag" style="margin-left: 10px">Issue Count: 23</span>
+        <p>The deprecated API may be removed in a later JDK release.</p>
+        <h3>How to fix</h3>
+        <p>Replace with deprecated API by reference to JavaDoc.</p>
+        <h3>Issues Context</h3>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/org/slf4j/slf4j-api/1.7.9/slf4j-api-1.7.9.jar!/org/slf4j/helpers/Util$ClassContextSecurityManager.class!/org.slf4j.helpers.Util$ClassContextSecurityManager!/, Target: java.lang.SecurityManager.<init>()V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar!/org/junit/runners/parameterized/BlockJUnit4ClassRunnerWithParameters.class!/org.junit.runners.parameterized.BlockJUnit4ClassRunnerWithParameters!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/enumeration/EnumUtil.class!/com.alipay.sofa.common.profile.enumeration.EnumUtil!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/diagnostic/Profiler$Entry.class!/com.alipay.sofa.common.profile.diagnostic.Profiler$Entry!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar!/org/junit/experimental/theories/internal/Assignments.class!/org.junit.experimental.theories.internal.Assignments!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Float.<init>(F)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Byte.<init>(B)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/org/slf4j/slf4j-api/1.7.9/slf4j-api-1.7.9.jar!/org/slf4j/helpers/Util$ClassContextSecurityManager.class!/org.slf4j.helpers.Util$ClassContextSecurityManager!/, Target: java.lang.SecurityManager.getClassContext()[Ljava/lang/Class;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/enumeration/IntegerEnum.class!/com.alipay.sofa.common.profile.enumeration.IntegerEnum!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ClassLoaderUtil.class!/com.alipay.sofa.common.utils.ClassLoaderUtil!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/enumeration/EnumUtil.class!/com.alipay.sofa.common.profile.enumeration.EnumUtil!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/enumeration/Enum.class!/com.alipay.sofa.common.profile.enumeration.Enum!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Short.<init>(S)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar!/org/junit/runners/Parameterized$RunnersFactory.class!/org.junit.runners.Parameterized$RunnersFactory!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/enumeration/IntegerEnum$1.class!/com.alipay.sofa.common.profile.enumeration.IntegerEnum$1!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar!/org/junit/validator/AnnotationValidatorFactory.class!/org.junit.validator.AnnotationValidatorFactory!/, Target: java.lang.Class.newInstance()Ljava/lang/Object;</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/javax/servlet/ServletOutputStream.class!/javax.servlet.ServletOutputStream!/, Target: java.lang.Character.<init>(C)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Integer.<init>(I)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/utils/ArrayUtil.class!/com.alipay.sofa.common.utils.ArrayUtil!/, Target: java.lang.Long.<init>(J)V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar!/org/junit/internal/runners/statements/FailOnTimeout.class!/org.junit.internal.runners.statements.FailOnTimeout!/, Target: java.lang.ThreadGroup.destroy()V</li>
+        </ul>
+        <ul>
+          <li>Location: refclass:file:/Users/lo1nt/.m2/repository/com/alipay/sofa/common/sofa-common-tools/1.0.14/sofa-common-tools-1.0.14.jar!/com/alipay/sofa/common/profile/diagnostic/Profiler$Entry.class!/com.alipay.sofa.common.profile.diagnostic.Profiler$Entry!/, Target: java.lang.Double.<init>(D)V</li>
+        </ul>
+      </div>
+        <h2><a name="rd-anchorcr-anchor-1457349872-3">3. JDK internal APIs</a></h2>
+      <div style="padding: 0 16px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 6px; background: #cfd1d0"></div>
+        <h3>Description</h3>
+        <span class="tag">Priority: p4</span>
+        <span class="tag" style="margin-left: 10px">Issue Count: 1</span>
+        <p>JDK internal API should only be called by JDK. It means these APIs is unstable, they may be changed or removed in a future release.</p>
+        <h3>How to fix</h3>
+        <p>Use public Java API.</p>
+        <h3>Issues Context</h3>
+        <ul>
+          <li>Location: file:/Users/lo1nt/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar!/org/junit/internal/Throwables.class, Target: sun.reflect.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+// resize content
+const resizer = document.getElementById('resizer')
+const content = document.getElementById('content')
+const main = document.getElementById('main')
+let x = 0
+let contentWidth = 0
+const mouseDownHandler = function (e) {
+  x = e.clientX
+  contentWidth = content.getBoundingClientRect().width
+  resizer.style.background = 'grey'
+  document.addEventListener('mousemove', mouseMoveHandler)
+  document.addEventListener('mouseup', mouseUpHandler)
+}
+const mouseMoveHandler = function (e) {
+  resizer.style.cursor = document.body.style.cursor = 'col-resize'
+  const width = contentWidth + e.clientX - x
+  if (width < 100) {
+    return
+  }
+  content.style.width = width + 'px'
+  content.style.userSelect = 'none';
+  content.style.pointerEvents = 'none';
+  main.style.userSelect = 'none';
+  main.style.pointerEvents = 'none';
+}
+const mouseUpHandler = function () {
+  resizer.style.removeProperty('cursor')
+  resizer.style.removeProperty('background')
+  content.style.removeProperty('user-select');
+  content.style.removeProperty('pointer-events');
+  main.style.removeProperty('user-select');
+  main.style.removeProperty('pointer-events');
+  document.body.style.removeProperty('cursor')
+  document.removeEventListener('mousemove', mouseMoveHandler);
+  document.removeEventListener('mouseup', mouseUpHandler);
+}
+resizer.addEventListener('mousedown', mouseDownHandler);
+
+// active content entry
+const activeClass = 'active'
+const ceIdPrefix = 'ce'
+const meIdPrefix = 'me'
+const scIdPrefix = 'sc'
+let activeId = '0'
+function clickCE(id) {
+  if (id === activeId) {
+    return
+  }
+  document.getElementById(ceIdPrefix + activeId).classList.remove(activeClass)
+  let me = document.getElementById(meIdPrefix + activeId)
+  me.lastScrollTop = main.scrollTop
+  me.style.display = 'none'
+  document.getElementById(scIdPrefix + activeId).style.display = 'none'
+
+  activeId = id
+  document.getElementById(ceIdPrefix + activeId).classList.add(activeClass)
+  me = document.getElementById(meIdPrefix + activeId)
+  me.style.display = 'block'
+  if (me.lastScrollTop) {
+    main.scrollTop = me.lastScrollTop
+  } else {
+    main.scrollTop = 0
+  }
+}
+function toggleSubContent() {
+  let sc = document.getElementById(scIdPrefix + activeId)
+  sc.style.display = (sc.style.display === 'flex') ? 'none' : 'flex'
+}
+function hiddenSubContent() {
+  document.getElementById(scIdPrefix + activeId).style.display = 'none'
+}
+</script>
+<html>

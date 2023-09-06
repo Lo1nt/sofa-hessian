@@ -4,7 +4,7 @@
  */
 package com.caucho.hessian.io.throwable;
 
-import com.caucho.hessian.io.AbstractFieldSpecificDeserializer;
+import com.caucho.hessian.io.AbstractFieldAdaptorDeserializer;
 import com.caucho.hessian.io.AbstractHessianInput;
 import com.caucho.hessian.io.HessianFieldException;
 import com.caucho.hessian.io.IOExceptionWrapper;
@@ -22,7 +22,7 @@ import java.util.Map;
  * @author junyuan
  * @version ThrowableDeserializer.java, v 0.1 2023年04月10日 20:37 junyuan Exp $
  */
-public class ThrowableDeserializer extends AbstractFieldSpecificDeserializer {
+public class ThrowableDeserializer extends AbstractFieldAdaptorDeserializer {
 
     private final Class<?>  _type;
     protected Method        addSuppressed = null;
@@ -140,6 +140,9 @@ public class ThrowableDeserializer extends AbstractFieldSpecificDeserializer {
             }
             else if (key.equals("stackTrace")) {
                 obj.setStackTrace((StackTraceElement[]) value);
+            }
+            else if (key.equals("detailMessage")) {
+                // 只能通过构造方法写入
             }
             // 其他所有 field
             else {
@@ -315,7 +318,7 @@ public class ThrowableDeserializer extends AbstractFieldSpecificDeserializer {
             throw new HessianFieldException(fieldName + ": " + e.getMessage(), e);
 
         if (value != null)
-            throw new HessianFieldException(fieldName + ": " + value.getClass().getName() + " (" + value + ")"
+            throw new HessianFieldException(fieldName + ": " + value.getClass().getName()
                 + " cannot be assigned to " + field.getType().getName());
         else
             throw new HessianFieldException(fieldName + ": " + field.getType().getName() +

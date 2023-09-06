@@ -5,7 +5,7 @@
 package com.caucho.hessian.io.throwable;
 
 import com.caucho.hessian.io.AbstractHessianOutput;
-import com.caucho.hessian.io.AbstractFieldSpecificSerializer;
+import com.caucho.hessian.io.AbstractFieldAdaptorSerializer;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -14,15 +14,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author junyuan
  * @version ThrowableSerializer.java, v 0.1 2023年04月10日 19:30 junyuan Exp $
  */
-public class ThrowableSerializer extends AbstractFieldSpecificSerializer {
+public class ThrowableSerializer extends AbstractFieldAdaptorSerializer {
 
-    protected Method getSuppressed = null;
+    protected static final Logger log           = Logger.getLogger(ThrowableSerializer.class.getName());
+
+    protected Method              getSuppressed = null;
 
     public ThrowableSerializer(Class<?> clazz) {
         super(clazz);
@@ -98,14 +102,10 @@ public class ThrowableSerializer extends AbstractFieldSpecificSerializer {
         throws IOException {
         Object fieldValue = null;
         try {
+            field.setAccessible(true);
             fieldValue = field.get(obj);
         } catch (IllegalAccessException e) {
-            try {
-                field.setAccessible(true);
-                fieldValue = field.get(obj);
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
+            log.log(Level.FINE, e.toString());
         }
         out.writeObject(fieldValue);
     }

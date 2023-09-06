@@ -36,6 +36,21 @@ public class ReflectionUtil {
     }
 
     public static boolean setAccessible(Method m) {
+        m.setAccessible(true);
+        return true;
+    }
+
+    public static boolean setAccessible(Constructor c) {
+        c.setAccessible(true);
+        return true;
+    }
+
+    public static boolean setAccessible(Field f) {
+        f.setAccessible(true);
+        return true;
+    }
+
+    public static boolean trySetAccessible(Method m) {
         try {
             m.setAccessible(true);
         } catch (Throwable t) {
@@ -50,7 +65,7 @@ public class ReflectionUtil {
         return true;
     }
 
-    public static boolean setAccessible(Constructor c) {
+    public static boolean trySetAccessible(Constructor c) {
         try {
             c.setAccessible(true);
         } catch (Throwable t) {
@@ -65,7 +80,7 @@ public class ReflectionUtil {
         return true;
     }
 
-    public static boolean setAccessible(Field f) {
+    public static boolean trySetAccessible(Field f) {
         try {
             f.setAccessible(true);
         } catch (Throwable t) {
@@ -79,5 +94,4 @@ public class ReflectionUtil {
         }
         return true;
     }
-
 }
